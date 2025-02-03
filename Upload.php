@@ -29,11 +29,17 @@ else
    {
       echo "Nessun file caricato";
    }
+   //controllo se il file è un eseguibile
+   else if ($f=="application/x-msdownload")
+   {
+      move_uploaded_file($nome_tmp,"programmi/".$nome);
+      echo "File eseguibile caricato";
+   }
    else
    { 
       //se tipo file non consentito
       move_uploaded_file($nome_tmp,"files/".$nome);
-      echo "File caricato";
+      echo "File generico caricato";
    }
 }
 ?>
